@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using JogoDeXadrez.Tabuleiro;
+
+namespace JogoDeXadrez
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Posicao p;
+
+            p = new Posicao(3, 5);
+
+            Console.WriteLine("Posição: " + p);
+
+            Console.ReadLine();
+        }
+    }
+}
