@@ -13,9 +13,9 @@ namespace JogoDeXadrez.Tabuleiro
         public int QtdMovimentos { get; protected set; }
         public Tabuleiro1 Tabuleiro { get; protected set; }
 
-        public Peca(Posicao posicao, Cor cor, Tabuleiro1 tabuleiro)
+        public Peca(Cor cor, Tabuleiro1 tabuleiro)
         {
-            Posicao = posicao;
+            Posicao = null;
             Cor = cor;
             this.QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
