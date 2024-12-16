@@ -1,5 +1,5 @@
-﻿using JogoDeXadrez.Tabuleiro;
-
+﻿
+using JogoDeXadrez.Tabuleiro;
 namespace JogoDeXadrez
 {
     class Program
@@ -13,6 +13,8 @@ namespace JogoDeXadrez
             Console.WriteLine("Posição: " + p);
 
             Console.ReadLine();
+
+            Tabuleiro1 tabuleiro = new Tabuleiro1(8,8);
         }
     }
 }
