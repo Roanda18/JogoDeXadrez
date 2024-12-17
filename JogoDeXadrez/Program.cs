@@ -15,8 +15,15 @@ namespace JogoDeXadrez
                 {
                     Console.Clear();
                     Tela.imprimirTabuleiro(partida.tab);
+                    Console.WriteLine();
                     Console.Write("Digite posição da peça a ser movida: ");
                     Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+
+                    bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
+                    Console.WriteLine();
                     Console.Write("Digite posição de destino da peça: ");
                     Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
                     partida.executaMovimento(origem, destino);
