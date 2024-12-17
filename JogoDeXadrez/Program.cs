@@ -7,19 +7,31 @@ namespace JogoDeXadrez
     {
         static void Main(string[] args)
         {
-            Tabuleiro1 tab = new Tabuleiro1(8,8);
+            try
+            {
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+                while (!partida.terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab);
+                    Console.Write("Digite posição da peça a ser movida: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Digite posição de destino da peça: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                    partida.executaMovimento(origem, destino);
+                }
 
-            Console.WriteLine(pos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            Console.WriteLine(pos.toPosicao());
 
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(3, 3));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(6, 2));
-            tab.colocarPeca(new Rei(tab, Cor.Branca), new Posicao(1, 1));
 
-            Tela.imprimirTabuleiro(tab);
+
+
 
 
         }

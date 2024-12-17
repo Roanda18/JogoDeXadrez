@@ -1,4 +1,5 @@
 ﻿using JogoDeXadrez.Tabuleiro;
+using JogoDeXadrez.Xadrez;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,15 @@ namespace JogoDeXadrez
             }
             Console.WriteLine("  a b c d e f g h ");
         }
+
+        public static PosicaoXadrez lerPosicaoXadrez()
+        {
+            string jogada = Console.ReadLine();
+            char letra = jogada[0];
+            int numero = int.Parse(jogada[1] + "");
+            return new PosicaoXadrez(letra, numero);
+        }
+
         public static void imprimirPeca(Peca peca)
         {
             if (peca.Cor == Cor.Branca)
