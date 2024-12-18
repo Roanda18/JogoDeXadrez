@@ -10,6 +10,40 @@ namespace JogoDeXadrez
 {
     internal class Tela
     {
+        public static void imprimirPartida(PartidaDeXadrez partida)
+        {
+            imprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+        }
+
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas: ");
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturad(Cor.Branca));
+            Console.WriteLine();
+            Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            imprimirConjunto(partida.pecasCapturad(Cor.Preta));
+            Console.ForegroundColor = aux;
+            Console.WriteLine();
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca p in conjunto)
+            {
+                Console.Write(p + " ");
+            }
+            Console.Write("]");
+        }
+
         public static void imprimirTabuleiro(Tabuleiro1 tabuleiro)
         {
             for (int i = 0; i < tabuleiro.Linhas; i++)
@@ -39,8 +73,9 @@ namespace JogoDeXadrez
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
-                    else { 
-                        Console.BackgroundColor= fundoOriginal;
+                    else
+                    {
+                        Console.BackgroundColor = fundoOriginal;
                     }
                     imprimirPeca(tabuleiro.peca(i, j));
                     Console.BackgroundColor = fundoOriginal;
