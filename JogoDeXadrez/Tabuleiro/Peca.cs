@@ -47,7 +47,7 @@ namespace JogoDeXadrez.Tabuleiro
             return false;
         }
 
-        public bool podeMoverPara(Posicao pos)
+        public bool moviemtoPossivel(Posicao pos)
         {
             return movimentosPossiveis()[pos.Linha,pos.Coluna];
         }
