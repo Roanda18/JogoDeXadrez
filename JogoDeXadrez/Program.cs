@@ -36,6 +36,9 @@ namespace JogoDeXadrez
                         Console.ReadLine();
                     }
                 }
+                Console.Clear();
+                Tela.imprimirPartida(partida);
+
 
             }
             catch (Exception ex)
