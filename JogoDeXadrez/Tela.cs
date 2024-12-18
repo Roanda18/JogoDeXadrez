@@ -18,6 +18,11 @@ namespace JogoDeXadrez
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
             Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+            Console.WriteLine();
+            if (partida.xeque)
+            {
+                Console.WriteLine("VOCÊ ESTA EM XEQUE!!");
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
