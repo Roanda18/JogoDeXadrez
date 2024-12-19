@@ -10,9 +10,10 @@ namespace JogoDeXadrez.Xadrez
 {
     internal class Peao : Peca
     {
+        private PartidaDeXadrez partida;
         public Peao(Tabuleiro1 tabuleiro, Cor cor, PartidaDeXadrez partida) : base(cor, tabuleiro)
         {
-            partida = partida;
+           this.partida = partida;
         }
 
         private bool podeMover(Posicao pos)
@@ -62,10 +63,10 @@ namespace JogoDeXadrez.Xadrez
                 }
 
                 // #jogadaespecial en passant
-                /*if (Posicao.Linha == 3)
+                if (Posicao.Linha == 3)
                 {
                     Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                    if (Tabuleiro.posicaoValida(esquerda) && existeInimigo(esquerda) && Tabuleiro.peca(esquerda) == Partida.vulneravelEnPassant)
+                    if (Tabuleiro.posicaoValida(esquerda) && existeInimigo(esquerda) && Tabuleiro.peca(esquerda) == partida.vulneravelEnPassant)
                     {
                         mat[esquerda.Linha - 1, esquerda.Coluna] = true;
                     }
@@ -74,7 +75,7 @@ namespace JogoDeXadrez.Xadrez
                     {
                         mat[direita.Linha - 1, direita.Coluna] = true;
                     }
-                }*/
+                }
             }
             else
             {
@@ -101,7 +102,7 @@ namespace JogoDeXadrez.Xadrez
                 }
 
                 // #jogadaespecial en passant
-                /*if (Posicao.Linha == 4)
+                if (Posicao.Linha == 4)
                 {
                     Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
                     if (Tabuleiro.posicaoValida(esquerda) && existeInimigo(esquerda) && Tabuleiro.peca(esquerda) == partida.vulneravelEnPassant)
@@ -113,7 +114,7 @@ namespace JogoDeXadrez.Xadrez
                     {
                         mat[direita.Linha + 1, direita.Coluna] = true;
                     }
-                }*/
+                }
             }
 
             return mat;
