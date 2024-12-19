@@ -100,7 +100,7 @@ namespace JogoDeXadrez.Xadrez
 
         public void validarPosicaoDestino(Posicao origem, Posicao destino)
         {
-            if (!tab.peca(origem).podeMoverPara(destino))
+            if (!tab.peca(origem).moviemtoPossivel(destino))
             {
                 throw new TabuleiroException("Essa peça não pode fazer esse movimento");
             }
@@ -227,15 +227,15 @@ namespace JogoDeXadrez.Xadrez
         public void colocarPecas()
         {
             colocarNovaPeca('c', 1, new Torre(tab, Cor.Branca));
-            colocarNovaPeca('c', 2, new Torre(tab, Cor.Branca));
+            colocarNovaPeca('c', 2, new Bisbo(tab, Cor.Branca));
             colocarNovaPeca('d', 2, new Torre(tab, Cor.Branca));
-            colocarNovaPeca('e', 2, new Torre(tab, Cor.Branca));
-            colocarNovaPeca('e', 1, new Torre(tab, Cor.Branca));
+            colocarNovaPeca('e', 2, new Cavalo(tab, Cor.Branca));
+            colocarNovaPeca('e', 1, new Dama(tab, Cor.Branca));
             colocarNovaPeca('d', 1, new Rei(tab, Cor.Branca));
 
-            colocarNovaPeca('c', 7, new Torre(tab, Cor.Preta));
-            colocarNovaPeca('c', 8, new Torre(tab, Cor.Preta));
-            colocarNovaPeca('d', 7, new Torre(tab, Cor.Preta));
+            colocarNovaPeca('c', 7, new Cavalo(tab, Cor.Preta));
+            colocarNovaPeca('c', 8, new Dama(tab, Cor.Preta));
+            colocarNovaPeca('d', 7, new Bisbo(tab, Cor.Preta));
             colocarNovaPeca('e', 7, new Torre(tab, Cor.Preta));
             colocarNovaPeca('e', 8, new Torre(tab, Cor.Preta));
             colocarNovaPeca('d', 8, new Rei(tab, Cor.Preta));
